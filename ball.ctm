@@ -1,0 +1,30 @@
+Bouncing ball
+-------------
+
+This is how *aksjd* jald asjd _ald_ l aksd  
+
+You can use the slider to set the gravity
+
+    gravity = slider(0, 100, 9.81);
+
+This simulate a bouncing ball starting at a certain height
+
+    startheight = slider();
+  
+    ball = shape(circle, 10, 10);
+
+
+    v = 0;
+    h = startheight;
+    data = []
+    animate([0, 100], function() {
+        v += gravity;
+        h += v;
+        ball.y = h;
+        draw(ball);`
+        data.push(ball.y);
+    });
+
+If you plot this:
+
+    plot(data)

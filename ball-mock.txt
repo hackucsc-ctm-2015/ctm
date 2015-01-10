@@ -1,0 +1,29 @@
+Bouncing ball
+
+This is how *aksjd* jald asjd _ald_ l aksd
+
+You can use the slider to set the gravity
+
+gravity: |-------|--------------|
+
+
+This simulate a bouncing ball starting at a certain height
+
++-------------------------------+
+|                               |
+|          /-\                  |
+|         |   |                 |
+|          \-/                  |
+|                               |
++-------------------------------+
+time: |----------|--------------|
+
+If you plot this:
+
++-------------------------------+
+|                               |
+|    ----                       |
+|   /    \                      |
+|  /      \  /-\                |
+| /        \/   \               |
++-------------------------------+
