@@ -34,6 +34,8 @@ class Context
       if @i != @widgets.length
         throw new Exception 'Number of widgets changed during update'
 
+  setSection: (s) -> @output = s
+
 # Base class for all the widgets
 class Widget
 

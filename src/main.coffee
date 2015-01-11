@@ -27,20 +27,22 @@ possiblyUpdate = ->
   code = textarea.val()
   md = markdown(code)
   outputarea.find('.output').html(md)
-  js = []
+  jsa = []
   n = 0
   $('#output .output code').parent('pre').replaceWith(-> (
     console.log('blah')
-    js.push($(this).children().text())
+    jsa.push($(this).children().text())
     replacement = $('<div>')
     replacement.attr('id', 'js' + (n++))
     replacement
   ))
 
-  n = 0
-  for j in js
-    f = eval('(function() {' + j + '})')
-    run(f, $('#js' + (n++)))
+  all_js = ''
+  for js,n in jsa
+    all_js += js
+    all_js += ';App.ctx.setSection($("#js' + (n+1) + '"));'
+  f = eval('(function() {' + all_js + '})')
+  run(f, $('#js0'))  if jsa.length > 0
 
 showOrHideCode = (-> (
   showing = true
