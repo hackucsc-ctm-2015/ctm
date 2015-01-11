@@ -53,17 +53,19 @@ possiblyUpdate = -> (
 execute = (code) -> (
   md = markdown(code);
   outputarea.html(md);
-  js = '';
+  js = [];
   n = 0;
   $('#outputarea code').parent('pre').replaceWith(-> (
-    js += $(this).children().text()
+    js.push($(this).children().text())
     replacement = $('<div>')
     replacement.attr('id', 'js' + (n++))
     replacement
   ))
 
-  f = eval('(function() {' + js + '})')
-  run(f, $('#js0'))
+  n = 0
+  for j in js
+    f = eval('(function() {' + j + '})')
+    run(f, $('#js' + (n++)))
 )
 
 showOrHideCode = (-> (
