@@ -10,7 +10,7 @@ module.exports = (grunt) ->
       all:
         files: [
           dot: true
-          src: ['build']]
+          src: ['build', 'dist']]
 
     # Compiles CoffeeScript to JavaScript
     coffee:
@@ -85,6 +85,19 @@ module.exports = (grunt) ->
         files:
           src: ['test/*.coffee']
 
+    useminPrepare:
+      html: 'index.html'
+      options:
+        dest: 'dist'
+
+    copy:
+      html:
+        files:
+          [{src: 'index.html', dest: 'dist/'}]
+
+    usemin:
+      html: 'dist/index.html'
+
     concurrent:
       options:
         logConcurrentOutput: true
@@ -111,6 +124,15 @@ module.exports = (grunt) ->
   grunt.registerTask 'build', [
     'clean'
     'coffee']
+
+  grunt.registerTask 'deploy', [
+    'coffee'
+    'useminPrepare'
+    'concat:generated'
+    'cssmin:generated'
+    'uglify:generated'
+    'copy:html'
+    'usemin']
 
   # Default task
   grunt.registerTask 'default', ['build', 'test']
