@@ -20,11 +20,18 @@
         <div id="source" class="col col-xs-6">
           <div class="panel panel-primary">
             <div class="panel-heading">
-              <h3 class="panel-title">Source</h3>
+              <h3 class="panel-title">Source
+                <div class="pull-right">
+                  <button class="btn-link btn" id="hideCodeButton">Hide</button>
+                  <button class="btn-link btn" id="loadButton">Load</button>
+                  <input type="file" id="filePicker" style="display:none;"></input>
+                  <button class="btn-link btn" id="saveButton">Save</button>
+                </div>
+              </h3>
             </div>
             <div class="panel-body">
             </div>
-            <div style="padding: 1ex; background-color: #eee">
+            <div class="panel-footer">
               <div class="checkbox">
                 <label>
                   <input id="vimmode" type="checkbox"> Vim Mode
@@ -36,17 +43,18 @@
         <div id="output" class="col col-xs-6">
           <div class="panel panel-primary">
             <div class="panel-heading">
-              <h3 class="panel-title">Rendered</h3>
+              <h3 class="panel-title">Rendered
+                <div class="pull-right">
+                  <button class="btn-link btn" id="showCodeButton"
+                          style="display:none">Show Code</button>
+                </div>
+              </h3>
             </div>
             <div class="panel-body output">
             </div>
           </div>
         </div>
       </div>
-      <button class="btn-default btn" id="showHideCodeButton"></button>
-      <button class="btn-default btn" id="loadButton">Load</button>
-      <input type="file" id="filePicker" style="display:none;"></input>
-      <button class="btn-default btn" id="saveButton">Save</button>
     </div>
 
     <!-- build:js all.js -->

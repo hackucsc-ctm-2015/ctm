@@ -21,3 +21,8 @@ body {
 .CodeMirror {
   height: auto;
 }
+
+.panel-title button {
+  margin-top: -1ex;
+  color: #fff;
+}

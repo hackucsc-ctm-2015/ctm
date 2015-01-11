@@ -7,11 +7,9 @@ markdown = (s) -> converter.makeHtml(s)
 code = '# Headline\n\nThis is some plain text.\n\n    print("Hello World");'
 textarea = undefined
 outputarea = undefined
-showHideCodeButton = undefined
+showCodeButton = undefined
+hideCodeButton = undefined
 filePicker = undefined
-
-hideCodeText = 'Hide code'
-showCodeText = 'Show code'
 
 window.addEventListener('beforeunload', (e) ->
   if diskOutdated
@@ -27,9 +25,10 @@ window.App =
 
     outputarea = $('#output')
 
-    showHideCodeButton = $('#showHideCodeButton')
-    showHideCodeButton.text(hideCodeText)
-    showHideCodeButton.click(showOrHideCode)
+    showCodeButton = $('#showCodeButton')
+    hideCodeButton = $('#hideCodeButton')
+    showCodeButton.click(showCode)
+    hideCodeButton.click(hideCode)
 
     $('#loadButton').click(load)
     filePicker = $('#filePicker')
@@ -82,23 +81,17 @@ possiblyUpdate = ->
 
   run(f, $('#js0'))  if jsa.length > 0
 
-showOrHideCode = (-> (
-  showing = true
-  (_) -> (
-    button = showHideCodeButton
-    if showing
-      $('#source').fadeOut ->
-        outputarea.removeClass 'col-xs-6'
-        outputarea.addClass 'col-xs-12'
-      button.text(showCodeText)
-    else
-      outputarea.removeClass 'col-xs-12'
-      outputarea.addClass 'col-xs-6'
-      $('#source').fadeIn()
-      button.text hideCodeText
-    showing = !showing
-  )
-))()
+hideCode = ->
+  $('#source').fadeOut ->
+    outputarea.removeClass 'col-xs-6'
+    outputarea.addClass 'col-xs-12'
+  showCodeButton.fadeIn()
+
+showCode = ->
+  outputarea.removeClass 'col-xs-12'
+  outputarea.addClass 'col-xs-6'
+  $('#source').fadeIn()
+  showCodeButton.fadeOut()
 
 load = ->
   if diskOutdated

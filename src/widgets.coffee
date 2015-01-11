@@ -31,9 +31,9 @@ class Context
       @fn()
     catch e
       error = $('<p style="color:red;">')
-      error.text(e.toString())
-      console.log(e)
+      error.text e.toString()
       @output.append error
+      throw e
     finally
       App.ctx = null
       @initial = false
