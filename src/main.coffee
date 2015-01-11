@@ -26,7 +26,6 @@ window.App = {
       width:    '50%'
       top:      '1.5em'
       bottom:   '0'
-    })
     outputarea.appendTo('#App')
 
     showHideCodeButton = $('<button>')
