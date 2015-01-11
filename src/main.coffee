@@ -51,6 +51,8 @@ possiblyUpdate = ->
 
   return if !renderOutdated
 
+  renderOutdated = false
+
   md = markdown(code)
   outputarea.find('.output').html(md)
   jsa = []
