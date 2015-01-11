@@ -9,6 +9,10 @@ showHideCodeButton = undefined
 hideCodeText = 'Hide code'
 showCodeText = 'Show code'
 
+window.addEventListener('beforeunload', (e) ->
+  e.returnValue = 'Are you sure you want to leave this page?'
+)
+
 window.App =
   hello: ->
     textarea = $('#source textarea')
