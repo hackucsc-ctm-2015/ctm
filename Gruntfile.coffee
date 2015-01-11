@@ -46,15 +46,11 @@ module.exports = (grunt) ->
         files: ['test/**/*.coffee']
         tasks: ['coffee:test','coffeelint:test','mochaTest:all']
 
-    mochaTest:
+    mocha:
       all:
+        src: ['test.html']
         options:
-          reporter: 'dot'
-        src: ['build/test/**/*.js']
-      teamcity:
-        options:
-          reporter: 'mocha-teamcity-reporter'
-        src: ['build/test/**/*.js']
+          run: true
 
     connect:
       server:
@@ -102,7 +98,7 @@ module.exports = (grunt) ->
       'coffee'
       'coffeelint:src'
       'coffeelint:test'
-      'mochaTest' + (if target is 'teamcity' then ':teamcity' else ':all')]
+      'mocha']
 
   # Run the server and watch for file changes
   grunt.registerTask 'serve', (target) ->
