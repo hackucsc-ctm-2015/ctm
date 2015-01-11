@@ -39,7 +39,6 @@ possiblyUpdate = ->
 
   f = eval('(function() {' + js + '})')
   run(f, $('#js0'))
-)
 
 showOrHideCode = (-> (
   showing = true
