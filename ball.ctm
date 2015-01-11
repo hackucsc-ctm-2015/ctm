@@ -1,30 +1,35 @@
-Bouncing ball
--------------
+# Bouncing ball
 
-This is how *aksjd* jald asjd _ald_ l aksd  
+Gravity:
 
-You can use the slider to set the gravity
+    var gravity = +slider(0, 9.81);
 
-    gravity = slider(0, 100, 9.81);
+Starting Height:
 
-This simulate a bouncing ball starting at a certain height
+    var start = +slider(0, 100, 1);
 
-    startheight = slider();
-  
-    ball = shape(circle, 10, 10);
+Drag:
 
+    var drag = 1 - +slider(0, 0.1, 0.0001);
 
-    v = 0;
-    h = startheight;
-    data = []
-    animate([0, 100], function() {
-        v += gravity;
+Bounce factor:
+
+    var bounce = +slider();
+
+    var height = [], velocity = [], v = 0, h = start;
+    for (var i = 0; i < 100; i++) {
+      v -= gravity;
+        v *= drag;
         h += v;
-        ball.y = h;
-        draw(ball);`
-        data.push(ball.y);
-    });
+        if (h < 0) { v = -v * bounce; h = 0; }
+        velocity.push(v);
+        height.push(h);
+    }
 
-If you plot this:
+Height:
 
-    plot(data)
+    plotseries(height);
+
+Velocity:
+
+    plotseries(velocity);
