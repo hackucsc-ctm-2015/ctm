@@ -7,3 +7,8 @@ body {
 .col .panel-body {
   min-height: 560px;
 }
+
+.widget {
+  margin-top: 0.5ex;
+  margin-bottom: 0.5ex;
+}

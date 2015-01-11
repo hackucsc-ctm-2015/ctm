@@ -17,6 +17,7 @@ class Context
       widget = new widgetClass()
       @widgets.push widget
       @output.append widget.el # show the html
+      @output.append $('<br>') # add line break
     else if @i >= @widgets.length
       throw new Exception 'Number of widgets changed during update'
     @widgets[@i++] # return widget and increment invocation count
