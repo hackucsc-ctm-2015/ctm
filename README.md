@@ -1,7 +1,6 @@
 # ctm
-
-         OSLDB: The Open Source Literate Dynabook
-         ----------------------------------------
+# OSLDB: The Open Source Literate Dynabook
+<span><img width=100px src="alankay.png"> <img width=100px src="rstallman.png"><img width=100px src="dknuth.png"></span>
 
 Based on concepts from: Saint R. Stallman, Donald Knuth, and Alan Kay
 
@@ -18,14 +17,12 @@ text books and curriculums.
 This will make computing devices all mobile devices, and the web all 1st class
 participants in improving the educational landscape.
 
-...
 The vision from Alan Kay of the Dynabook and Open Source by Richard
 Stallman in the early 80's can fuse together by creating an open source
 textbook, that also tries to address the concept of literate programming
 as proposed by Donald Knuth.  We like the idea that the code that implements
 the book be as open-source as the book.  A concept that Richard Stallman
 has certainly preached.
-...
 
 For this vision to happen authors need new tools that help them make interactive
 text books with dynamic mathematical equations, plots, multi-media and
@@ -56,17 +53,15 @@ programmer may want to use.
 Such blend of open source code, literate programming, dynamic authoring, 
 should help bring together at last the vision started long ago.
 
-     "The best way to predict the future is to invent it", A.Kay
+"The best way to predict the future is to invent it", A.Kay
 
------------------------------------------
 MORE ON THIS:
-
+-------------
 "When Alan Kay was asked if the Dynabook has not, in fact, been realized in
 the form of the notebook computer, tablet, and smartphone, Kay said he
 believes those devices largely miss the point.   Apple's iPad — and the wider 
 computing environment, by extension — falls short of the Dynabook's ideal, 
 Kay says, since it lacks the capacity to enable "symmetric authoring and consuming." (1)
-...
 
 "Kay's harsh words weren't reserved just for Apple. The computing pioneer took
 issue with the larger computing industry in general, in particular the ways
@@ -110,16 +105,15 @@ idea.   If you want to innovate and you feel stuck, look to the past.
 
 
 Team Members:
-   Marcelo Siero
-   Christopher Schuster
-   Tommy ...
+Marcelo Siero
+Christopher Schuster
+Tommy Schmitz
 
-==============================================================================
 Features of our software:
-   Software is very light weight (160 lines of the main JS source code)
-   Very scalable, no server side - interaction is necessary.
-   Portable across platforms and devices (Uses only HTML5, Javascript, 
-   Easy formatting: Markdown + Easy Code Visibility and Invisibility.
+Software is very light weight (160 lines of the main JS source code)
+Very scalable, no server side - interaction is necessary.
+Portable across platforms and devices (Uses only HTML5, Javascript, 
+Easy formatting: Markdown + Easy Code Visibility and Invisibility.
 
 (1) http://appleinsider.com/articles/13/04/03/computing-pioneer-alan-kay-calls-apples-ipad-user-interface-poor
 

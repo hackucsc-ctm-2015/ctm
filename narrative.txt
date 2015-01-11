@@ -1,34 +1,45 @@
 
 
-saint                            Alan Kay
-       The Open Source Dynabook
+         OSLDB: The Open Source Literate Dynabook
 
-Concept: Future mathbooks need to be dynamic and interactive.  The age
-of the paperless office will do more than save trees, it will engage students
-by allowing them to interact with a multi-media world making devices like the 
-ipad, the kindle, other mobile devices, and the web all to be a greater 
-participant in creating a better educational environment.
- 
+Concept provided by: Saint R. Stallman, Donald Knuth, Alan Kay
+
+Big Idea: Education is at the forefront of our social worries.
+Future mathbooks need to be dynamic and interactive.  We propose that
+the age of the paperless office will do much more than save trees, it
+will engage students by allowing them to be active participants due to
+interactiong with a multi-media world making.  Devices like the ipad,
+the kindle, mobile devices, and the web all need to be a greater
+participant in creating an improved educational environment.
+
 The vision from Alan Kay of the Dynabook and Open Source by Richard
-Stallman in the early 80's can fuse together by creating an open source 
-textbook. 
+Stallman in the early 80's can fuse together by creating an open source
+textbook, that also tries to address the concept of literate programming
+as proposed by Donald Knuth.  We like the idea that the code that implements
+the book be as open-source as the book.  A concept that Richard Stallman
+has certainly preached.
 
-For this to happen authors need new tools that help authors interact with 
-mathematical equations, plots, multi-media and more.
+For this vision to happen authors need new tools that help them make interactive
+text books with dynamic mathematical equations, plots, multi-media and
+all sorts of participation by the students.  This is the "Dyna" in Dynabook.
 
-Our group has coded a new language/system capable of seamlessly blending 
-together formatted text markdown input (easily formatted notes, add 
-images, html and more, mathjax)  It will work on any device that supports 
-HTML5 and Javascripta.  The simplicity of our system, allows for greater 
-scrutiny with regards to security in the web.
+Our group has coded a new language/system during this weekend capable of
+seamlessly blending together formatted markdown input (i.e. easily
+formatted notes, add images, html mathjax, and more)  It will work on any
+device that supports HTML5 and Javascripta.  The simplicity of the system,
+should allows for greater scrutiny with regards to security in the web. Since
+it uses simple HTML5 and Javascript it will run on any device.
 
-Similar concepts are being explored by UC Berkeley in the creation of the 
-IPyNotebook.  The concept being that a Ph.D. Thesis can be presented in 
+Similar concepts are being explored by UC Berkeley in the creation of the
+IPyNotebook.  The concept being that a Ph.D. Thesis can be presented in
 IPython Notebook and that will be able to include a dynamic demonstration
 and testable code.
 
-Our Open-Source Dynabook and IPython Notebooks are both examples of the 
-blending of code and documentation in the style proposed by Donald Knuth
-in the 80's with his literate programming proposals.
+Our very simple Open-Source Literate Dynabook is of course just a prototype
+developed at the UCSC HACKATHON, 2014 over a weekend.  This and the IPython
+Notebook Demo are basically ilustrative of what can and should be done in this
+domain.  Such blend of code, dynamic documentation, and literate programming
+should help bring together at last the vision started long ago.
 
+     "The best way to predict the future is to invent it", A.Kay
 
