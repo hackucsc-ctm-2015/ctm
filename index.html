@@ -3,13 +3,38 @@
   <head>
     <meta charset='utf-8'/>
     <title>CTM</title>
+    <link href="node_modules/bootstrap/dist/css/bootstrap.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="node_modules/bootstrap/dist/css/bootstrap-theme.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="main.css" media="screen" rel="stylesheet" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="favicon.ico">
   </head>
 
-  <body style="margin:0;padding:0;">
-    <div id="App">
+  <body>
+    <div class="container-full">
+      <div class="row">
+        <div id="source" class="col col-xs-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Source</h3>
+            </div>
+            <div class="panel-body">
+              <textarea class="form-control col-xs-12" rows="24"></textarea>
+            </div>
+          </div>
+        </div>
+        <div id="output" class="col col-xs-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Rendered</h3>
+            </div>
+            <div class="panel-body output">
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <button class="btn-default btn"></button>
     </div>
 
     <script src="node_modules/jquery/dist/jquery.js"></script>
