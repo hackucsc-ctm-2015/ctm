@@ -4,11 +4,22 @@ outputarea = undefined;
 
 window.App = {
   hello: -> (
-    textarea = $('<textarea rows="15" cols="100">');
+    textarea = $('<textarea>');
+    textarea.css({
+      position: 'absolute'
+      width:    '50%'
+      height:   '100%'
+    });
     textarea.appendTo('#App');
 
     outputarea = $('<div>');
     outputarea.append('(this is the output area)');
+    outputarea.css({
+      position: 'absolute'
+      left:     '50%'
+      width:    '50%'
+      height:   '100%'
+    });
     outputarea.appendTo('#App');
 
     setInterval(possiblyUpdate, 2000);
