@@ -1,9 +1,10 @@
-dirty = false
+diskOutdated = false
+renderOutdated = true
 
 converter = new Markdown.Converter()
 markdown = (s) -> converter.makeHtml(s)
 
-code = ''
+code = '# Headline\n\nThis is some plain text.\n\n    print("Hello World");'
 textarea = undefined
 outputarea = undefined
 showHideCodeButton = undefined
@@ -13,15 +14,14 @@ hideCodeText = 'Hide code'
 showCodeText = 'Show code'
 
 window.addEventListener('beforeunload', (e) ->
-  if dirty
+  if diskOutdated
     e.returnValue = 'Are you sure you want to leave this page?'
 )
 
 window.App =
   init: ->
     textarea = CodeMirror $('#source .panel-body').get(0),
-      value: '# Headline\n\nThis is some plain
-      text.\n\n    print("Hello World");'
+      value: code
       mode: 'markdown'
       indentUnit: 4
 
@@ -44,10 +44,12 @@ window.App =
       textarea.setOption 'vimMode', $("#vimmode").is(":checked")
 
 possiblyUpdate = ->
-  return if code == textarea.getValue()
-
+  if code != textarea.getValue()
+    diskOutdated = true
+    renderOutdated = true
   code = textarea.getValue()
-  dirty = true
+
+  return if !renderOutdated
 
   md = markdown(code)
   outputarea.find('.output').html(md)
@@ -86,7 +88,7 @@ showOrHideCode = (-> (
 ))()
 
 load = ->
-  if dirty
+  if diskOutdated
     if !window.confirm('Are you sure you want to load a new file without' +
                        'saving this one first?')
       return
@@ -102,7 +104,13 @@ load2 = ->
     if reader.result == undefined
       console.log('file contents are undefined')
       return
+
+    # Populate the text field with the new source code
+    code = reader.result
     textarea.setValue(reader.result)
+    diskOutdated = false
+    renderOutdated = true
+
   reader.readAsText(file)
 
 save = ->
