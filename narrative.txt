@@ -1,0 +1,34 @@
+
+
+saint                            Alan Kay
+       The Open Source Dynabook
+
+Concept: Future mathbooks need to be dynamic and interactive.  The age
+of the paperless office will do more than save trees, it will engage students
+by allowing them to interact with a multi-media world making devices like the 
+ipad, the kindle, other mobile devices, and the web all to be a greater 
+participant in creating a better educational environment.
+ 
+The vision from Alan Kay of the Dynabook and Open Source by Richard
+Stallman in the early 80's can fuse together by creating an open source 
+textbook. 
+
+For this to happen authors need new tools that help authors interact with 
+mathematical equations, plots, multi-media and more.
+
+Our group has coded a new language/system capable of seamlessly blending 
+together formatted text markdown input (easily formatted notes, add 
+images, html and more, mathjax)  It will work on any device that supports 
+HTML5 and Javascripta.  The simplicity of our system, allows for greater 
+scrutiny with regards to security in the web.
+
+Similar concepts are being explored by UC Berkeley in the creation of the 
+IPyNotebook.  The concept being that a Ph.D. Thesis can be presented in 
+IPython Notebook and that will be able to include a dynamic demonstration
+and testable code.
+
+Our Open-Source Dynabook and IPython Notebooks are both examples of the 
+blending of code and documentation in the style proposed by Donald Knuth
+in the 80's with his literate programming proposals.
+
+
