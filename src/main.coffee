@@ -23,6 +23,7 @@ window.App = {
     textarea.appendTo('#App')
 
     outputarea = $('<div>')
+    outputarea.attr('id', 'outputarea');
     outputarea.html(markdown('hello *world*'))
     outputarea.css
       position: 'absolute'
@@ -51,10 +52,18 @@ possiblyUpdate = -> (
 
 execute = (code) -> (
   md = markdown(code);
-  outputarea.text(md);
+  outputarea.html(md);
+  js = '';
+  n = 0;
+  $('#outputarea code').parent('pre').replaceWith(-> (
+    js += $(this).children().text()
+    replacement = $('<div>')
+    replacement.attr('id', 'js' + n)
+    replacement
+  ))
 
-#  f = eval(code)
-#  run(f, outputarea)
+  f = eval('(function() {' + js + '})')
+  run(f, $('#js0'))
 )
 
 showOrHideCode = (-> (
