@@ -27,11 +27,11 @@ possiblyUpdate = ->
   code = textarea.val()
   md = markdown(code)
   outputarea.find('.output').html(md)
-  js = ''
+  js = []
   n = 0
   $('#output .output code').parent('pre').replaceWith(-> (
     console.log('blah')
-    js += $(this).children().text()
+    js.push($(this).children().text())
     replacement = $('<div>')
     replacement.attr('id', 'js' + (n++))
     replacement
