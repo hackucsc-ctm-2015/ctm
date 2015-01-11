@@ -45,14 +45,14 @@ showOrHideCode = (-> (
   (_) -> (
     button = showHideCodeButton
     if showing
-      $("#source").fadeOut ->
+      $('#source').fadeOut ->
         outputarea.removeClass 'col-xs-6'
         outputarea.addClass 'col-xs-12'
       button.text(showCodeText)
     else
       outputarea.removeClass 'col-xs-12'
       outputarea.addClass 'col-xs-6'
-      $("#source").fadeIn()
+      $('#source').fadeIn()
       button.text hideCodeText
     showing = !showing
   )
