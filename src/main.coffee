@@ -58,7 +58,7 @@ execute = (code) -> (
   $('#outputarea code').parent('pre').replaceWith(-> (
     js += $(this).children().text()
     replacement = $('<div>')
-    replacement.attr('id', 'js' + n)
+    replacement.attr('id', 'js' + (n++))
     replacement
   ))
 
