@@ -40,7 +40,7 @@ module.exports = (grunt) ->
         files: ['Gruntfile.js']
         tasks: ['mochaTest:all','coffeelint:gruntfile']
       coffee:
-        files: ['src/**/*.coffee']
+        files: ['index.html', 'src/**/*.coffee']
         tasks: ['coffee:app','coffeelint:src','mocha:all']
       coffeeTest:
         files: ['test/**/*.coffee']

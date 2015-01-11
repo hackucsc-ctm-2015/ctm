@@ -1,0 +1,23 @@
+{
+  "name": "ctm",
+  "version": "0.0.1",
+  "homepage": "https://github.com/hackucsc-ctm-2015/ctm",
+  "authors": "",
+  "description": "Authoring system and DSL for writing interactive textbooks",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "ISC",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jqplot": "*",
+    "codemirror": "~4.11.0"
+  }
+}

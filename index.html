@@ -5,6 +5,8 @@
     <title>CTM</title>
     <link href="node_modules/bootstrap/dist/css/bootstrap.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="node_modules/bootstrap/dist/css/bootstrap-theme.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="bower_components/jqplot/jquery.jqplot.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="bower_components/codemirror/lib/codemirror.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="main.css" media="screen" rel="stylesheet" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="favicon.ico">
@@ -19,7 +21,13 @@
               <h3 class="panel-title">Source</h3>
             </div>
             <div class="panel-body">
-              <textarea class="form-control col-xs-12" rows="24"></textarea>
+            </div>
+            <div style="padding: 1ex; background-color: #eee">
+              <div class="checkbox">
+                <label>
+                  <input id="vimmode" type="checkbox"> Vim Mode
+                </label>
+              </div>
             </div>
           </div>
         </div>
@@ -37,13 +45,20 @@
     </div>
 
     <script src="node_modules/jquery/dist/jquery.js"></script>
-    <script src="node_modules/pagedown/Markdown.Converter.js"></script>
     <script src="node_modules/lodash/dist/lodash.js"></script>
+    <script src="node_modules/pagedown/Markdown.Converter.js"></script>
+    <script src="bower_components/jqplot/jquery.jqplot.js"></script>
+    <script src="bower_components/jqplot/plugins/jqplot.barRenderer.js"></script>
+    <script src="bower_components/jqplot/plugins/jqplot.categoryAxisRenderer.js"></script>
+    <script src="bower_components/codemirror/lib/codemirror.js"></script>
+    <script src="bower_components/codemirror/mode/markdown/markdown.js"></script>
+    <script src="bower_components/codemirror/keymap/vim.js"></script>
+
     <script src="build/main.js"></script>
     <script src="build/widgets.js"></script>
 
     <script>
-    App.hello();
+    App.init();
     </script>
 
   </body>

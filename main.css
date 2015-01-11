@@ -12,3 +12,12 @@ body {
   margin-top: 0.5ex;
   margin-bottom: 0.5ex;
 }
+
+.plot {
+  height: 300px;
+  width: 100%;
+}
+
+.CodeMirror {
+  height: auto;
+}
