@@ -1,0 +1,36 @@
+# Sum of Two Sine Waves.
+
+Amplitude of first and second sine wave:
+
+    var a1 = +slider(0.0, 1.0, 0.01);
+    var a2 = +slider(0.0, 1.0, 0.01);
+
+Frequency of first and second sine wave:
+
+    var f1 = +slider(0.0, 100.0, 0.1);    // default 50.0
+    var f2 = +slider( 1., 100.0, 0.1);    // default 80.0
+
+    print("a1="+ a1 + ", a2=" + a2 + ", f1=" + f1 + ", f2=" + f2);
+
+    var N = 600;           // number of samples. 
+    var T = 1.0 / 800.;    // fraction of 800 samples.
+    var x_start= 0.0;
+    var x_end = N; 
+    var x_incr = N * T;
+
+    print("N=" + N + ",  T=" + T + ", x_end=" + x_end + "  x_incr=" + x_incr);
+
+    Y = [];
+
+    for (var x = x_start; x < x_end; x += x_incr) {
+        y = a1 * Math.sin(f1 * 2.0* Math.PI * x) + a2 * Math.sin(f2 * 2.0 * Math.PI * x);
+        Y.push(y);
+    }
+
+The Function is: y = a1 * sin(f1 * 2.0 * PI * x) + a2 * sin(f2) * 2.0 * PI * x);
+
+View waveform:
+
+    plotseries(Y);
+
+
