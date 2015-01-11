@@ -47,8 +47,8 @@ possiblyUpdate = -> (
 )
 
 execute = (code) -> (
-  s = code.split('').reverse().join('')
-  outputarea.text(s)
+  f = eval(code)
+  run(f, outputarea)
 )
 
 showOrHideCode = (-> (
