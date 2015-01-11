@@ -7,8 +7,9 @@ window.App = {
     textarea = $('<textarea>');
     textarea.css({
       position: 'absolute'
+      right:    '0'
       width:    '50%'
-      height:   '100%'
+      height:   '98%'
     });
     textarea.appendTo('#App');
 
