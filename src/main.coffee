@@ -1,6 +1,10 @@
 code = '';
 textarea = undefined;
 outputarea = undefined;
+showHideCodeButton = undefined;
+
+hideCodeText = 'Hide code';
+showCodeText = 'Show code';
 
 window.App = {
   hello: -> (
@@ -17,11 +21,16 @@ window.App = {
     outputarea.append('(this is the output area)');
     outputarea.css({
       position: 'absolute'
-      left:     '50%'
       width:    '50%'
-      height:   '100%'
+      top:      '1.5em'
+      bottom:   '0'
     });
     outputarea.appendTo('#App');
+
+    showHideCodeButton = $('<button>');
+    showHideCodeButton.text(hideCodeText);
+    showHideCodeButton.click(showOrHideCode);
+    showHideCodeButton.appendTo('#App');
 
     setInterval(possiblyUpdate, 2000);
   )
@@ -40,3 +49,19 @@ execute = (code) -> (
   s = code.split('').reverse().join('');
   outputarea.text(s);
 );
+
+showOrHideCode = (-> (
+  showing = true;
+  (_) -> (
+    button = showHideCodeButton
+    if(showing)
+      textarea.detach()
+      outputarea.css('width', '100%')
+      button.text(showCodeText)
+    else
+      textarea.appendTo('#App');
+      outputarea.css('width', '50%');
+      button.text(hideCodeText)
+    showing = !showing
+  )
+))();
