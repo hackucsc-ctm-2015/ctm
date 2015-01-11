@@ -13,7 +13,7 @@ window.App =
   hello: ->
     textarea = $('#source textarea')
 
-    outputarea = $('#output .output')
+    outputarea = $('#output')
 
     showHideCodeButton = $('button')
     showHideCodeButton.text(hideCodeText)
