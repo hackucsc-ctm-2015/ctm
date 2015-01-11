@@ -18,7 +18,7 @@ class Context
       @widgets.push widget
       @output.append widget.el # show the html
     else if @i >= @widgets.length
-      throw new Exception "Number of widgets changed during update"
+      throw new Exception 'Number of widgets changed during update'
     @widgets[@i++] # return widget and increment invocation count
 
   # Run initially or for updates
@@ -32,7 +32,7 @@ class Context
       App.ctx = null
       @initial = false
       if @i != @widgets.length
-        throw new Exception "Number of widgets changed during update"
+        throw new Exception 'Number of widgets changed during update'
 
 # Base class for all the widgets
 class Widget
@@ -68,7 +68,9 @@ class Label extends Widget
 class List extends Widget
 
   constructor: ->
-    @el = $ '<table class="table"><tbody><tr></tr></tbody></table>'
+    @el = $ '<table class="table table-bordered">
+               <tbody><tr></tr></tbody>
+             </table>'
 
   update: (val) ->
     row = @el.find 'tr'
