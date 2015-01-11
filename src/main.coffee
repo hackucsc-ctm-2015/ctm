@@ -46,9 +46,9 @@ window.App =
 possiblyUpdate = ->
   return if code == textarea.getValue()
 
+  code = textarea.getValue()
   dirty = true
 
-  code = textarea.getValue()
   md = markdown(code)
   outputarea.find('.output').html(md)
   jsa = []
