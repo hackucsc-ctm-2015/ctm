@@ -41,10 +41,10 @@ module.exports = (grunt) ->
         tasks: ['mochaTest:all','coffeelint:gruntfile']
       coffee:
         files: ['src/**/*.coffee']
-        tasks: ['coffee:app','coffeelint:src','mochaTest:all']
+        tasks: ['coffee:app','coffeelint:src','mocha:all']
       coffeeTest:
         files: ['test/**/*.coffee']
-        tasks: ['coffee:test','coffeelint:test','mochaTest:all']
+        tasks: ['coffee:test','coffeelint:test','mocha:all']
 
     mocha:
       all:

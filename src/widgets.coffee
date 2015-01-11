@@ -6,16 +6,19 @@ class Context
 
   # Create new context
   constructor: (@output, @fn) ->
+    @initial = true
     @output.html ''  # clear output
     @widgets = []
 
   # Invoked both initially and for updates
   ensureWidget: (widgetClass) ->
-    if @i == @widgets.length
+    if @initial
       # The widget for this invocation has not been created yet, so do it
       widget = new widgetClass()
       @widgets.push widget
       @output.append widget.el # show the html
+    else if @i >= @widgets.length
+      throw new Exception "Number of widgets changed during update"
     @widgets[@i++] # return widget and increment invocation count
 
   # Run initially or for updates
@@ -27,6 +30,9 @@ class Context
       @fn()
     finally
       App.ctx = null
+      @initial = false
+      if @i != @widgets.length
+        throw new Exception "Number of widgets changed during update"
 
 # Base class for all the widgets
 class Widget
