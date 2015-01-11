@@ -47,6 +47,7 @@ class Slider extends Widget
   constructor: ->
     @el = $ '<input type="range"></input>'
       .on 'change', App.ctx.run.bind App.ctx
+      .on 'mousemove', _.debounce App.ctx.run.bind(App.ctx), 100
 
   update: (min, max, step) ->
     @el

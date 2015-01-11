@@ -24,5 +24,6 @@ describe 'Slider', ->
       a = slider 0, 100, 1
       print a
     $('#output pre').html().should.be.equal '50'
-    $('#output input').attr 'value', '10'
-    # $('#output pre').html().should.be.equal '10'
+    $('#output input').val 10
+    $('#output input').trigger 'change'
+    $('#output pre').html().should.be.equal '10'
