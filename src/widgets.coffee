@@ -35,7 +35,9 @@ class Context
       if @i != @widgets.length
         throw new Exception 'Number of widgets changed during update'
 
-  setSection: (s) -> @output = s
+  setSection: (s) ->
+    @output = s
+    @output.html '' if @initial  # clear output
 
 # Base class for all the widgets
 class Widget
@@ -83,6 +85,43 @@ class List extends Widget
         .html String item
         .appendTo row
 
+$.jqplot.config.enablePlugins = true
+
+class Plot extends Widget
+
+  options: -> {}
+
+  constructor: ->
+    @el = $ '<div class="plot"></div>'
+
+  update: (points) ->
+    @el.html ''
+    @el.jqplot [points], @options()
+
+class PlotSeries extends Plot
+
+  options: ->
+    axes:
+      xaxis:
+        min: 1
+        tickInterval: 1.0
+
+  update: (series) ->
+    super ([(+i) + 1,y] for i,y of series)
+
+class Histogram extends PlotSeries
+
+  options: ->
+    seriesDefaults:
+      pointLabels:
+        show: true
+      renderer: $.jqplot.BarRenderer
+      rendererOptions:
+        fillToZero: true
+    axes:
+      xaxis:
+        renderer: $.jqplot.CategoryAxisRenderer
+
 window.slider = (min = 0, max = 1.0, step = 0.1) ->
   App.ctx.ensureWidget(Slider).update min, max, step
 
@@ -91,6 +130,15 @@ window.print = (val = '') ->
 
 window.list = (val = []) ->
   App.ctx.ensureWidget(List).update val
+
+window.plot = (val = []) ->
+  App.ctx.ensureWidget(Plot).update val
+
+window.plotseries = (val = []) ->
+  App.ctx.ensureWidget(PlotSeries).update val
+
+window.histogram = (val = []) ->
+  App.ctx.ensureWidget(Histogram).update val
 
 # Run with a given update function fn
 window.run = (fn, output = $('#output')) ->
