@@ -1,3 +1,6 @@
+converter = new Markdown.Converter()
+markdown = (s) -> converter.makeHtml(s);
+
 code = ''
 textarea = undefined
 outputarea = undefined
@@ -20,7 +23,7 @@ window.App = {
     textarea.appendTo('#App')
 
     outputarea = $('<div>')
-    outputarea.append('(this is the output area)')
+    outputarea.html(markdown('hello *world*'))
     outputarea.css
       position: 'absolute'
       width:    '50%'
@@ -47,8 +50,11 @@ possiblyUpdate = -> (
 )
 
 execute = (code) -> (
-  f = eval(code)
-  run(f, outputarea)
+  md = markdown(code);
+  outputarea.text(md);
+
+#  f = eval(code)
+#  run(f, outputarea)
 )
 
 showOrHideCode = (-> (
