@@ -1,3 +1,5 @@
+dirty = false
+
 converter = new Markdown.Converter()
 markdown = (s) -> converter.makeHtml(s)
 
@@ -5,12 +7,14 @@ code = ''
 textarea = undefined
 outputarea = undefined
 showHideCodeButton = undefined
+filePicker = undefined
 
 hideCodeText = 'Hide code'
 showCodeText = 'Show code'
 
 window.addEventListener('beforeunload', (e) ->
-  e.returnValue = 'Are you sure you want to leave this page?'
+  if dirty
+    e.returnValue = 'Are you sure you want to leave this page?'
 )
 
 window.App =
@@ -23,9 +27,15 @@ window.App =
 
     outputarea = $('#output')
 
-    showHideCodeButton = $('button')
+    showHideCodeButton = $('#showHideCodeButton')
     showHideCodeButton.text(hideCodeText)
     showHideCodeButton.click(showOrHideCode)
+
+    $('#loadButton').click(load)
+    filePicker = $('#filePicker')
+    filePicker.on('change', load2)
+
+    $('#saveButton').click(save)
 
     setInterval(possiblyUpdate, 2000)
 
@@ -35,6 +45,8 @@ window.App =
 
 possiblyUpdate = ->
   return if code == textarea.getValue()
+
+  dirty = true
 
   code = textarea.getValue()
   md = markdown(code)
@@ -72,3 +84,26 @@ showOrHideCode = (-> (
     showing = !showing
   )
 ))()
+
+load = ->
+  if dirty
+    if !window.confirm('Are you sure you want to load a new file without' +
+                       'saving this one first?')
+      return
+  filePicker[0].click()
+
+load2 = ->
+  file = filePicker[0].files[0]
+  if file == undefined
+    console.log('file is undefined')
+    return
+  reader = new FileReader()
+  reader.onload = (_) ->
+    if reader.result == undefined
+      console.log('file contents are undefined')
+      return
+    textarea.setValue(reader.result)
+  reader.readAsText(file)
+
+save = ->
+  0
