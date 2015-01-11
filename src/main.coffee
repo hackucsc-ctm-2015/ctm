@@ -114,4 +114,15 @@ load2 = ->
   reader.readAsText(file)
 
 save = ->
-  0
+  console.log('attempting to save')
+  download('file.ctm', textarea.getValue())
+
+download = (filename, text) ->
+  a = $('<a>')
+  a.attr
+    href: 'data:text/plain;charset=utf-8,' + encodeURIComponent(text)
+    download: filename
+  a.appendTo($('body'))
+  a[0].click()
+  a.remove()
+  diskOutdated = false
