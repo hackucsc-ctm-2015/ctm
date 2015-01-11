@@ -32,7 +32,7 @@ possiblyUpdate = ->
   $('#output .output code').parent('pre').replaceWith(-> (
     console.log('blah')
     jsa.push($(this).children().text())
-    replacement = $('<div>')
+    replacement = $('<div class="widget">')
     replacement.attr('id', 'js' + (n++))
     replacement
   ))
@@ -40,7 +40,7 @@ possiblyUpdate = ->
   all_js = ''
   for js,n in jsa
     all_js += js
-    all_js += ';App.ctx.setSection($("#js' + (n+1) + '"));'
+    all_js += ';App.ctx.setSection($("#js' + (n + 1) + '"));'
   f = eval('(function() {' + all_js + '})')
   run(f, $('#js0'))  if jsa.length > 0
 
