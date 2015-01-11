@@ -29,6 +29,11 @@ class Context
     App.ctx = this
     try
       @fn()
+    catch e
+      error = $('<p style="color:red;">')
+      error.text(e.toString())
+      console.log(e)
+      @output.append error
     finally
       App.ctx = null
       @initial = false
