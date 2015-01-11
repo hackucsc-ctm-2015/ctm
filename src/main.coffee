@@ -62,11 +62,22 @@ possiblyUpdate = ->
     replacement
   ))
 
+  if jsa.length == 0
+    return
+
   all_js = ''
   for js,n in jsa
     all_js += js
     all_js += ';App.ctx.setSection($("#js' + (n + 1) + '"));'
-  f = eval('(function() {' + all_js + '})')
+
+  try
+    f = eval('(function() {' + all_js + '})')
+  catch e
+    error = $('<p style="color:red;">')
+    error.text(e.toString())
+    $('#js0').append error
+    return
+
   run(f, $('#js0'))  if jsa.length > 0
 
 showOrHideCode = (-> (
