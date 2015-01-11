@@ -14,8 +14,12 @@ window.addEventListener('beforeunload', (e) ->
 )
 
 window.App =
-  hello: ->
-    textarea = $('#source textarea')
+  init: ->
+    textarea = CodeMirror $('#source .panel-body').get(0),
+      value: '# Headline\n\nThis is some plain
+      text.\n\n    print("Hello World");'
+      mode: 'markdown'
+      indentUnit: 4
 
     outputarea = $('#output')
 
@@ -25,16 +29,19 @@ window.App =
 
     setInterval(possiblyUpdate, 2000)
 
-possiblyUpdate = ->
-  return if code == textarea.val()
+    $("#vimmode").on "change", ->
+      console.log $("#vimmode").is(":checked")
+      textarea.setOption 'vimMode', $("#vimmode").is(":checked")
 
-  code = textarea.val()
+possiblyUpdate = ->
+  return if code == textarea.getValue()
+
+  code = textarea.getValue()
   md = markdown(code)
   outputarea.find('.output').html(md)
   jsa = []
   n = 0
   $('#output .output code').parent('pre').replaceWith(-> (
-    console.log('blah')
     jsa.push($(this).children().text())
     replacement = $('<div class="widget">')
     replacement.attr('id', 'js' + (n++))

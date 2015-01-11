@@ -17,6 +17,7 @@
     "tests"
   ],
   "dependencies": {
-    "jqplot": "*"
+    "jqplot": "*",
+    "codemirror": "~4.11.0"
   }
 }
