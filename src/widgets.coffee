@@ -65,13 +65,27 @@ class Label extends Widget
     @el.html String val
 
 
+class List extends Widget
+
+  constructor: ->
+    @el = $ '<table><tr></tr></table>'
+
+  update: (val) ->
+    row = @el.find 'tr'
+    row.html ''
+    for item in val
+      $ '<td></td>'
+        .html String item
+        .appendTo row
+
 window.slider = (min = 0, max = 1.0, step = 0.1) ->
   App.ctx.ensureWidget(Slider).update min, max, step
-
 
 window.print = (val = '') ->
   App.ctx.ensureWidget(Label).update val
 
+window.list = (val = []) ->
+  App.ctx.ensureWidget(List).update val
 
 # Run with a given update function fn
 window.run = (fn, output = $('#output')) ->

@@ -1,4 +1,9 @@
 body {
+  margin: 2em;
   background-color: #eee;
   font-family: 'sans';
+}
+
+.col .panel-body {
+  min-height: 560px;
 }

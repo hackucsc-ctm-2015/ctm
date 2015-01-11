@@ -1,4 +1,5 @@
 chai.should()
+expect = chai.expect
 
 describe 'Label', ->
 
@@ -27,3 +28,22 @@ describe 'Slider', ->
     $('#output input').val 10
     $('#output input').trigger 'change'
     $('#output pre').html().should.be.equal '10'
+
+  it 'should complain about too many widgets on update', ->
+    num = 1
+    run ->
+      for i in [0..num]
+        slider 0, 10, 1
+    num = 3
+    $('#output input').val 3
+    expect(-> $('#output input').trigger 'change').to.throw()
+
+  it 'should complain about too few widgets on update', ->
+    num = 3
+    run ->
+      for i in [0..num]
+        slider 0, 10, 1
+    num = 1
+    $('#output input').val 3
+    expect(-> $('#output input').trigger 'change').to.throw()
+
