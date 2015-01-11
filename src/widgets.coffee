@@ -68,7 +68,7 @@ class Label extends Widget
 class List extends Widget
 
   constructor: ->
-    @el = $ '<table><tr></tr></table>'
+    @el = $ '<table class="table"><tbody><tr></tr></tbody></table>'
 
   update: (val) ->
     row = @el.find 'tr'

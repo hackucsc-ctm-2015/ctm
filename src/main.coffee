@@ -27,7 +27,7 @@ possiblyUpdate = ->
   console.log('blah')
   code = textarea.val()
   md = markdown(code)
-  outputarea.html(md)
+  outputarea.find('.output').html(md)
   js = ''
   n = 0
   $('#output .output code').parent('pre').replaceWith(-> (
