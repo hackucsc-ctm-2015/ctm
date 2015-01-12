@@ -11,10 +11,10 @@ class Context
     @widgets = []
 
   # Invoked both initially and for updates
-  ensureWidget: (widgetClass) ->
+  ensureWidget: (widgetClass, optArg) ->
     if @initial
       # The widget for this invocation has not been created yet, so do it
-      widget = new widgetClass()
+      widget = new widgetClass optArg
       @widgets.push widget
       @output.append widget.el # show the html
       @output.append $('<br>') # add line break
@@ -54,17 +54,21 @@ class Widget
 # A slider
 class Slider extends Widget
 
-  constructor: ->
+  constructor: (@def) ->
+    @initial = true
     @el = $ '<input type="range"></input>'
       .on 'change', App.ctx.run.bind App.ctx
       .on 'mousemove', _.debounce App.ctx.run.bind(App.ctx), 100
 
   update: (min, max, step) ->
-    +(@el
+    @el
       .attr 'min', min
       .attr 'max', max
       .attr 'step', step
-      .val())
+    if @initial
+      @el.val @def
+      @initial = false
+    +@el.val()
 
 class Label extends Widget
 
@@ -127,8 +131,9 @@ class Histogram extends PlotSeries
       xaxis:
         renderer: $.jqplot.CategoryAxisRenderer
 
-window.slider = (min = 0, max = 1.0, step = 0.1) ->
-  App.ctx.ensureWidget(Slider).update min, max, step
+window.slider = (min = 0, max = 1.0, step = 0.1, def) ->
+  def = min if def is undefined
+  App.ctx.ensureWidget(Slider, def).update min, max, step
 
 window.print = (val = '') ->
   App.ctx.ensureWidget(Label).update val

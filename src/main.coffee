@@ -5,24 +5,36 @@ converter = new Markdown.Converter()
 markdown = (s) -> converter.makeHtml(s)
 
 code = """
-
 # Bouncing ball
 
-Gravity:
+The **gravitational force** will accelerate an object starting at a certain
+height.
 
-    var gravity = slider(0, 9.81);
+Gravity (0-10, Earth surface would be about 9.81):
 
-Starting Height:
+    var gravity = slider(0, 10, 0.1, 3);
 
-    var start = slider(0, 100, 1);
+Starting Height (0-100m):
 
-Drag:
+    var start = slider(0, 100, 1, 100);
 
-    var drag = 1 - slider(0, 0.1, 0.0001);
+Upon hitting the ground, a portion of the *kinetic energy* will be lost, so a
+*bouncing ball* will be jump back up with less velocity than before.
 
-Bounce factor:
+Bounce factor (0.0 - 1.0):
 
-    var bounce = slider();
+    var bounce = slider(0, 1, 0.1, 0.8);
+
+Additionally, drag in term of *air resistance/friction* will also slow down the
+obj.  The amount of drag affecting an object is usually linear with its
+velocity which caps the acceleration due to graviation at a certain **terminal
+velocity**.
+
+Drag (0-10%):
+
+    var drag = 1 - slider(0, 0.1, 0.0001, 0);
+
+The simulation itself is fairly straight-forward.
 
     var height = [], velocity = [], v = 0, h = start;
     for (var i = 0; i < 100; i++) {
@@ -30,15 +42,17 @@ Bounce factor:
         v *= drag;
         h += v;
         if (h < 0) { v = -v * bounce; h = 0; }
-        velocity.push(v);
+        velocity.push(Math.abs(v));
         height.push(h);
     }
 
-Height:
+Plotting the height of the bouncing ball over time looks like a series of
+inverted parables:
 
     plotseries(height);
 
-Velocity:
+By plotting the velocity, it is possible to understand the effects of
+gravitation and drag on the momentum:
 
     plotseries(velocity);"""
 

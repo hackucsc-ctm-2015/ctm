@@ -15,16 +15,16 @@ describe 'Slider', ->
 
   it 'should create an input element', ->
     run ->
-      slider 0, 100, 1
+      slider 0, 100, 1, 20
     widget = $('#output input')
     widget.get().should.have.length 1
-    widget.val().should.be.equal '50'
+    widget.val().should.be.equal '20'
 
   it 'should update on change', ->
     run ->
       a = slider 0, 100, 1
       print a
-    $('#output pre').html().should.be.equal '50'
+    $('#output pre').html().should.be.equal '0'
     $('#output input').val 10
     $('#output input').trigger 'change'
     $('#output pre').html().should.be.equal '10'
