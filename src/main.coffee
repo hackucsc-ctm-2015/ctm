@@ -5,7 +5,7 @@ converter = new Markdown.Converter()
 markdown = (s) -> converter.makeHtml(s)
 
 code = """
-# Bouncing ball
+## Bouncing ball
 
 The **gravitational force** will accelerate an object starting at a certain
 height.
@@ -34,7 +34,7 @@ Drag (0-10%):
 
     var drag = 1 - slider(0, 0.1, 0.0001, 0);
 
-The simulation itself is fairly straight-forward.
+### Simulation
 
     var height = [], velocity = [], v = 0, h = start;
     for (var i = 0; i < 100; i++) {
