@@ -1,21 +1,22 @@
 # Bouncing ball
 
-The **gravitational force** will accelerate an object starting at a certain height.
+The **gravitational force** will accelerate an object starting at a certain
+height.
 
 Gravity (0-10, Earth surface would be about 9.81):
 
-    var gravity = slider(0, 10);
+    var gravity = slider(0, 10, 0.1, 1.5);
 
 Starting Height (0-100m):
 
-    var start = slider(0, 100, 1);
+    var start = slider(0, 100, 1, 100);
 
 Upon hitting the ground, a portion of the *kinetic energy* will be lost, so a
 *bouncing ball* will be jump back up with less velocity than before.
 
 Bounce factor (0.0 - 1.0):
 
-    var bounce = slider();
+    var bounce = slider(0, 1, 0.1, 0.8);
 
 Additionally, drag in term of *air resistance/friction* will also slow down the
 obj.  The amount of drag affecting an object is usually linear with its
@@ -24,7 +25,7 @@ velocity**.
 
 Drag (0-10%):
 
-    var drag = 1 - slider(0, 0.1, 0.0001);
+    var drag = 1 - slider(0, 0.1, 0.0001, 0);
 
 The simulation itself is fairly straight-forward.
 

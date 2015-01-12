@@ -12,7 +12,7 @@ height.
 
 Gravity (0-10, Earth surface would be about 9.81):
 
-    var gravity = slider(0, 10, 0.1, 3);
+    var gravity = slider(0, 10, 0.1, 1.5);
 
 Starting Height (0-100m):
 
