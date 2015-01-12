@@ -60,11 +60,11 @@ class Slider extends Widget
       .on 'mousemove', _.debounce App.ctx.run.bind(App.ctx), 100
 
   update: (min, max, step) ->
-    @el
+    +(@el
       .attr 'min', min
       .attr 'max', max
       .attr 'step', step
-      .val()
+      .val())
 
 class Label extends Widget
 

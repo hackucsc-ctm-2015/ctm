@@ -2,19 +2,19 @@
 
 Gravity:
 
-    var gravity = +slider(0, 9.81);
+    var gravity = slider(0, 9.81);
 
 Starting Height:
 
-    var start = +slider(0, 100, 1);
+    var start = slider(0, 100, 1);
 
 Drag:
 
-    var drag = 1 - +slider(0, 0.1, 0.0001);
+    var drag = 1 - slider(0, 0.1, 0.0001);
 
 Bounce factor:
 
-    var bounce = +slider();
+    var bounce = slider();
 
     var height = [], velocity = [], v = 0, h = start;
     for (var i = 0; i < 100; i++) {
