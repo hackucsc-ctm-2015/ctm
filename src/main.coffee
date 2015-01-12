@@ -4,7 +4,44 @@ renderOutdated = true
 converter = new Markdown.Converter()
 markdown = (s) -> converter.makeHtml(s)
 
-code = '# Headline\n\nThis is some plain text.\n\n    print("Hello World");'
+code = """
+
+# Bouncing ball
+
+Gravity:
+
+    var gravity = +slider(0, 9.81);
+
+Starting Height:
+
+    var start = +slider(0, 100, 1);
+
+Drag:
+
+    var drag = 1 - +slider(0, 0.1, 0.0001);
+
+Bounce factor:
+
+    var bounce = +slider();
+
+    var height = [], velocity = [], v = 0, h = start;
+    for (var i = 0; i < 100; i++) {
+      v -= gravity;
+        v *= drag;
+        h += v;
+        if (h < 0) { v = -v * bounce; h = 0; }
+        velocity.push(v);
+        height.push(h);
+    }
+
+Height:
+
+    plotseries(height);
+
+Velocity:
+
+    plotseries(velocity);"""
+
 textarea = undefined
 outputarea = undefined
 showCodeButton = undefined
